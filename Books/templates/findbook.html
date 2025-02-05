@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        <select name="search_by">
+            <option value="name">По имени</option>
+            <option value="author">По автору</option>
+            <option value="price">По цене</option>
+        </select>
+        <input type="text" name="search_value">
+        <input type="submit" value="Найти">
+    </form>
+    <h2>Результаты поиска:</h2>
+    {{if .}}
+    <ul>
+        {{range .}}
+            <li><b>{{.Name}}</b> - {{.Author}} (Цена: {{.Price}})</li>
+        {{end}}
+    </ul>
+{{else}}
+    <p>Ничего не найдено</p>
+{{end}}
+</body>
+</html>
